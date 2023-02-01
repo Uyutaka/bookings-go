@@ -1,0 +1,11 @@
+{
+	"name": "Go Env",
+	"dockerFile": "Dockerfile",
+	// extensions for VSCode
+	"extensions": [
+		"WakaTime.vscode-wakatime",
+		"golang.go",
+		"766b.go-outliner",
+		"premparihar.gotestexplorer"
+	]
+}
