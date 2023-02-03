@@ -9,8 +9,8 @@ import (
 	"path/filepath"
 
 	"github.com/justinas/nosurf"
-	"github.com/uyutaka/bookings-go/pkg/config"
-	"github.com/uyutaka/bookings-go/pkg/models"
+	"github.com/uyutaka/bookings-go/internal/config"
+	"github.com/uyutaka/bookings-go/internal/models"
 )
 
 var functions = template.FuncMap{}

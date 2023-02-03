@@ -6,9 +6,9 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/uyutaka/bookings-go/pkg/config"
-	"github.com/uyutaka/bookings-go/pkg/models"
-	"github.com/uyutaka/bookings-go/pkg/render"
+	"github.com/uyutaka/bookings-go/internal/config"
+	"github.com/uyutaka/bookings-go/internal/models"
+	"github.com/uyutaka/bookings-go/internal/render"
 )
 
 // Repo the repository used by the handlers
