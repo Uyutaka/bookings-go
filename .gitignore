@@ -16,3 +16,5 @@
 
 # for mac
 .DS_Store
+
+coverage.html
