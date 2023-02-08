@@ -7,10 +7,13 @@ import (
 	"net/http"
 
 	"github.com/uyutaka/bookings-go/internal/config"
+	"github.com/uyutaka/bookings-go/internal/driver"
 	"github.com/uyutaka/bookings-go/internal/forms"
 	"github.com/uyutaka/bookings-go/internal/helpers"
 	"github.com/uyutaka/bookings-go/internal/models"
 	"github.com/uyutaka/bookings-go/internal/render"
+	"github.com/uyutaka/bookings-go/internal/repository"
+	"github.com/uyutaka/bookings-go/internal/repository/dbrepo"
 )
 
 // Repo the repository used by the handlers
@@ -19,12 +22,14 @@ var Repo *Repository
 // Repository is the repository type
 type Repository struct {
 	App *config.AppConfig
+	DB  repository.DatabaseRepo
 }
 
 // NewRepo creates a new repository
-func NewRepo(a *config.AppConfig) *Repository {
+func NewRepo(a *config.AppConfig, db *driver.DB) *Repository {
 	return &Repository{
 		App: a,
+		DB:  dbrepo.NewPostgresRepo(db.SQL, a),
 	}
 }
 
