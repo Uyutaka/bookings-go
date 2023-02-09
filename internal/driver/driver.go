@@ -8,6 +8,7 @@ import (
 	_ "github.com/jackc/pgx/v5/stdlib"
 )
 
+// DB holds the database connection pool
 type DB struct {
 	SQL *sql.DB
 }
@@ -24,6 +25,7 @@ func ConnectSQL(dsn string) (*DB, error) {
 	if err != nil {
 		panic(err)
 	}
+
 	d.SetMaxOpenConns(maxOpenDbConn)
 	d.SetMaxIdleConns(maxIdleDbConn)
 	d.SetConnMaxLifetime(maxDbLifetime)
@@ -34,7 +36,6 @@ func ConnectSQL(dsn string) (*DB, error) {
 	if err != nil {
 		return nil, err
 	}
-
 	return dbConn, nil
 }
 
@@ -53,8 +54,10 @@ func NewDatabase(dsn string) (*sql.DB, error) {
 	if err != nil {
 		return nil, err
 	}
+
 	if err = db.Ping(); err != nil {
 		return nil, err
 	}
+
 	return db, nil
 }
